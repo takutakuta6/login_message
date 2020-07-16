@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :messages
   devise_for :users
-  root "top#index"
+  root to: "top#index"
 end
