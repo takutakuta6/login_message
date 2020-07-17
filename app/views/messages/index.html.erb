@@ -1,0 +1,24 @@
+<h1>一覧表示</h1>
+<p><%= link_to "新規投稿", new_message_path %></p>
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Eメール</th>
+      <th scope="col">内容</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @messages.each.with_index(1) do |message, i| %>
+      <tr>
+        <td><%= message.user.email %></td>
+        <td><%= message.content %></td>
+        <td>
+          <%= link_to "詳細", message %>
+          <%= link_to "編集", edit_message_path(message) %>
+          <%= link_to "削除", message, method: :delete, data: { confirm: "削除しますか?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

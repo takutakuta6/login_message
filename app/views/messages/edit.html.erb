@@ -1,0 +1,5 @@
+<h1>編集</h1>
+<%= form_with model: @message, local: true do |form| %>
+  <%= form.text_field :content, required: true %>
+  <%= form.submit "送信" %>
+<% end %>
